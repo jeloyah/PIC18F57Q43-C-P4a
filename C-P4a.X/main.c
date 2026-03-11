@@ -32,23 +32,23 @@ void main(void) {
     while(1)
     {
         /* RB4 is pressed? */        
-        if ((PORTB & 0x10) == 0x00)
+        
             {
             
             /* Wait for 1 s */
-            TIMER0_1s();
+        
                        
             /* Turn on LED */
-            LATF &= 0xF7;
+        
             
             /* LED remains on for 3s */
-            TIMER0_Delay_ms(3000);
+        
                         
             }
         else
         {
             /* Turn off LED */
-            LATF |= 0x08;
+            
         }
         
         
