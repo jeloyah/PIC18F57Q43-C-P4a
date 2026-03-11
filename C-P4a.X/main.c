@@ -27,30 +27,29 @@ void main(void) {
     
     /* Config PortF */
     PortF_Initialize();
-    
-    /* Config TIMER0 */
-    TIMER0_Initialize();
-       
+         
     /* infinite loop */
     while(1)
     {
         /* RB4 is pressed? */        
-        if (PORTBbits.RB4 == 0)
+        if ((PORTB & 0x10) == 0x00)
             {
             
             /* Wait for 1 s */
-            TIMER0_Delay_ms(2000);
-            //TIMER0_1s();
-            
+            TIMER0_1s();
+                       
             /* Turn on LED */
-            PORTFbits.RF3 = 0;
+            LATF &= 0xF7;
             
             /* LED remains on for 3s */
             TIMER0_Delay_ms(3000);
+                        
             }
-        
-        /* Turn off LED */
-        PORTFbits.RF3 = 1;
+        else
+        {
+            /* Turn off LED */
+            LATF |= 0x08;
+        }
         
         
      } /* while */
