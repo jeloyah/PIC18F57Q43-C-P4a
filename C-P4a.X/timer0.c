@@ -54,19 +54,18 @@ void TIMER0_Delay_ms(unsigned short Time)
 /* Timer0 1s */
 void TIMER0_1s(void)
 { 
-	/* Timer0 disabled; 16-bit; no postscaler */
-	T0CON0 = 0x10; 
+	
+	T0CON0 = ?? 
     
-    /* HFINTOSC; counter not synchronized; prescaler 1:32768 */
-	T0CON1 = 0x7F;
+
+	T0CON1 = ??
     
     /* Load TMR0 with initial value (hex) */
     /* tCLK x counts  x prescaler = TMR0 counting time */
-    /* 1/64MHz * (65535-63580) * 2 =  1 ms */
-	TMR0H = 0xF8;
-	TMR0L = 0x5C;
+    TMR0H = ??
+	TMR0L = ??
 
-    /* Timer0 enabled; 16-bit */
+    /* Timer0 enabled */
 	T0CON0 |= 0x80;
             
    	/* Wait for TMR0IF = 1 */
